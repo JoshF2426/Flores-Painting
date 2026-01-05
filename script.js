@@ -44,6 +44,9 @@
     en: {
       brand_tagline: "Interior & Exterior • Residential",
 
+      thanks_title: "Thank you!",
+      thanks_msg: "We received your request. We will contact you soon to discuss your project and the next steps.",
+
       nav_home: "Home",
       nav_gallery: "Gallery",
       nav_contact: "Contact / Estimate",
@@ -140,6 +143,9 @@
       nav_gallery: "Galería",
       nav_contact: "Contacto / Presupuesto",
 
+      thanks_title: "¡Gracias!",
+      thanks_msg: "Recibimos su solicitud. Nos comunicaremos pronto para hablar sobre su proyecto y los siguientes pasos.",
+      
       btn_request_estimate: "Solicitar Presupuesto",
       btn_view_gallery: "Ver Nuestro Trabajo",
       btn_view_full_gallery: "Ver Galería Completa",
