@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact / Estimate | Flores Painting</title>
+  <meta name="description" content="Contact Flores Painting to request an estimate for interior or exterior house painting." />
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header>
+    <div class="container navbar">
+      <a class="brand" href="index.html" aria-label="Flores Painting home">
+        <div class="brand-badge" aria-hidden="true"></div>
+        <div class="brand-text">
+          <strong>Flores Painting</strong>
+          <span>Interior & Exterior • Residential</span>
+        </div>
+      </a>
+
+      <div class="nav-actions">
+        <a class="btn" href="gallery.html">View Gallery</a>
+
+        <div class="dropdown">
+          <button class="btn hamburger" type="button"
+                  aria-label="Open menu"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  data-menu-button>
+            <span class="hamburger-lines" aria-hidden="true">
+              <span></span><span></span><span></span>
+            </span>
+          </button>
+
+          <nav class="menu" data-menu aria-label="Site menu">
+            <a href="index.html">Home</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact.html">Contact / Estimate</a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section>
+      <div class="container">
+        <div class="section-title">
+          <h2>Request an Estimate</h2>
+          <p>Tell us about your project and how to reach you.</p>
+        </div>
+
+        <div class="notice" style="margin-bottom: 12px;">
+          We will provide an estimated price after we see the job or project you want done.
+          Photos help, and an on-site look may be needed for an accurate quote.
+        </div>
+
+        <div class="hero-card">
+          <!-- Formspree: replace the action URL with your Formspree endpoint -->
+          <form class="form" action="https://formspree.io/f/yourFormID" method="POST">
+            <div class="field">
+              <label for="name">Full Name</label>
+              <input id="name" name="name" type="text" autocomplete="name" required />
+            </div>
+
+            <div class="field">
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" />
+            </div>
+
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required />
+            </div>
+
+            <div class="field">
+              <label for="service">Service Needed</label>
+              <select id="service" name="service" required>
+                <option value="" selected disabled>Select one</option>
+                <option>Interior Painting</option>
+                <option>Exterior Painting</option>
+                <option>Interior + Exterior</option>
+                <option>Trim / Doors</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <div class="field full">
+              <label for="address">Project Address (City/Area is fine)</label>
+              <input id="address" name="address" type="text" autocomplete="street-address" />
+            </div>
+
+            <div class="field full">
+              <label for="message">Project Details</label>
+              <textarea id="message" name="message" placeholder="Example: 3 bedrooms + hallway, ceilings included, preferred color, timeline, any special notes..." required></textarea>
+            </div>
+
+            <!-- Optional: allow file upload if you use Formspree paid features or another provider.
+                 For simple Formspree setups, remove file input if it causes issues. -->
+            <!--
+            <div class="field full">
+              <label for="photos">Photos (optional)</label>
+              <input id="photos" name="photos" type="file" multiple />
+            </div>
+            -->
+
+            <div class="field full" style="display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
+              <button class="btn primary" type="submit">Send Request</button>
+              <a class="btn" href="index.html">Back to Home</a>
+            </div>
+
+            <p style="margin:10px 0 0; color: var(--muted); font-size: 0.92rem;">
+              By submitting, you agree we may contact you about your project and scheduling an on-site estimate if needed.
+            </p>
+          </form>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <span>© <span id="year"></span> Flores Painting. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
