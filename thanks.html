@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Thank You | Flores Painting</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header>
+    <div class="container navbar">
+      <a class="brand" href="index.html" aria-label="Flores Painting home">
+        <div class="brand-badge" aria-hidden="true"></div>
+        <div class="brand-text">
+          <strong>Flores Painting</strong>
+          <span data-i18n="brand_tagline">Interior & Exterior • Residential</span>
+        </div>
+      </a>
+
+      <div class="nav-actions">
+        <button class="btn" id="langToggle" type="button">ES</button>
+
+        <div class="dropdown">
+          <button class="btn hamburger" type="button"
+                  aria-label="Open menu"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  data-menu-button>
+            <span class="hamburger-lines" aria-hidden="true">
+              <span></span><span></span><span></span>
+            </span>
+          </button>
+
+          <nav class="menu" data-menu aria-label="Site menu">
+            <a href="index.html" data-i18n="nav_home">Home</a>
+            <a href="gallery.html" data-i18n="nav_gallery">Gallery</a>
+            <a href="contact.html" data-i18n="nav_contact">Contact / Estimate</a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section>
+      <div class="container">
+        <div class="hero-card" style="text-align:center;">
+          <h1 data-i18n="thanks_title">Thank you!</h1>
+          <p data-i18n="thanks_msg" style="color: var(--muted); font-size: 1.05rem; margin-top: 8px;">
+            We received your request. We will contact you soon to discuss your project and the next steps.
+          </p>
+
+          <div style="margin-top: 14px; display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
+            <a class="btn primary" href="index.html" data-i18n="btn_back_home">Back to Home</a>
+            <a class="btn" href="gallery.html" data-i18n="nav_gallery">Gallery</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <span>© <span id="year"></span> Flores Painting. <span data-i18n="footer_rights">All rights reserved.</span></span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
