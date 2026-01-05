@@ -1,33 +1,38 @@
 (function () {
   /* -------------------------------
-     DROPDOWN MENU
+     DROPDOWN MENU (ROBUST)
   -------------------------------- */
   const menuBtn = document.querySelector('[data-menu-button]');
   const menu = document.querySelector('[data-menu]');
+  const dropdown = menuBtn ? menuBtn.closest('.dropdown') : null;
 
-  function closeMenu() {
+  function setOpen(isOpen) {
     if (!menu || !menuBtn) return;
-    menu.classList.remove('open');
-    menuBtn.setAttribute('aria-expanded', 'false');
+    menu.classList.toggle('open', isOpen);
+    menuBtn.setAttribute('aria-expanded', String(isOpen));
   }
 
-  if (menuBtn && menu) {
+  if (menuBtn && menu && dropdown) {
+    // Toggle on button click
     menuBtn.addEventListener('click', (e) => {
+      e.preventDefault();
       e.stopPropagation();
-      const isOpen = menu.classList.toggle('open');
-      menuBtn.setAttribute('aria-expanded', String(isOpen));
+      setOpen(!menu.classList.contains('open'));
     });
 
-    document.body.addEventListener('click', closeMenu);
-    menu.addEventListener('click', (e) => e.stopPropagation());
+    // Close only if click is outside the dropdown
+    document.addEventListener('click', (e) => {
+      if (!dropdown.contains(e.target)) setOpen(false);
+    });
 
+    // Close on ESC
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeMenu();
+      if (e.key === 'Escape') setOpen(false);
     });
 
-    // Highlight current page
+    // Highlight current page in menu
     const current = window.location.pathname.split('/').pop() || 'index.html';
-    menu.querySelectorAll('a').forEach(a => {
+    menu.querySelectorAll('a').forEach((a) => {
       if (a.getAttribute('href') === current) a.classList.add('active');
     });
   }
@@ -93,7 +98,6 @@
       footer_rights: "All rights reserved.",
       footer_business_line: "Interior & Exterior House Painting",
 
-      // Gallery page
       gallery_title: "Project Gallery",
       gallery_desc: "Replace these photos with real job pictures from Javier’s projects.",
       gal_meta_1: "Exterior repaint",
@@ -105,7 +109,6 @@
       gal_meta_7: "Trim work",
       gal_meta_8: "Clean finish",
 
-      // Contact page
       contact_title: "Request an Estimate",
       contact_sub: "Tell us about your project and how to reach you.",
       estimate_notice: "We will provide an estimated price after we see the job or project you want done. Photos help, and an on-site look may be needed for an accurate quote.",
@@ -175,4 +178,84 @@
       why_title: "Por qué nos eligen",
       why_sub: "Proceso sencillo, comunicación clara y resultados profesionales.",
       why1_title: "Preparación cuidadosa",
-      why1_desc: "Protegemos superficies, reparamos cuando es necesario y preparamos correctamente antes de p_
+      why1_desc: "Protegemos superficies, reparamos cuando es necesario y preparamos correctamente antes de pintar.",
+      why2_title: "Trabajo respetuoso",
+      why2_desc: "Mantenemos el área limpia y cuidamos su hogar de principio a fin.",
+      why3_title: "Acabado de calidad",
+      why3_desc: "Capas uniformes, bordes definidos y cobertura consistente para que se vea excelente y dure.",
+
+      cta_title: "¿Listo para un presupuesto?",
+      cta_sub: "Cuéntenos lo que necesita: interior, exterior o ambos.",
+
+      footer_rights: "Todos los derechos reservados.",
+      footer_business_line: "Pintura Residencial Interior y Exterior",
+
+      gallery_title: "Galería de Proyectos",
+      gallery_desc: "Reemplace estas fotos con trabajos reales realizados por Javier.",
+      gal_meta_1: "Pintura exterior",
+      gal_meta_2: "Paredes interiores",
+      gal_meta_3: "Molduras y puertas",
+      gal_meta_4: "Muro de acento",
+      gal_meta_5: "Detalle exterior",
+      gal_meta_6: "Interior renovado",
+      gal_meta_7: "Trabajo de molduras",
+      gal_meta_8: "Acabado limpio",
+
+      contact_title: "Solicitar Presupuesto",
+      contact_sub: "Cuéntenos sobre su proyecto y cómo comunicarnos con usted.",
+      estimate_notice: "Proporcionaremos un precio estimado después de ver el trabajo o proyecto que desea realizar. Las fotos ayudan y puede ser necesario visitar el lugar para dar un presupuesto preciso.",
+
+      name_label: "Nombre Completo",
+      phone_label: "Teléfono",
+      email_label: "Correo Electrónico",
+      service_label: "Servicio Necesario",
+      address_label: "Dirección del Proyecto (Ciudad/Zona está bien)",
+      details_label: "Detalles del Proyecto",
+
+      service_placeholder: "Seleccione una opción",
+      service_opt_1: "Pintura Interior",
+      service_opt_2: "Pintura Exterior",
+      service_opt_3: "Interior + Exterior",
+      service_opt_4: "Molduras / Puertas",
+      service_opt_5: "Otro",
+
+      details_placeholder: "Ejemplo: 3 recámaras + pasillo, incluir techos, color preferido, fecha, notas...",
+      consent: "Al enviar, usted acepta que podemos contactarle sobre su proyecto y coordinar una visita si es necesaria.",
+
+      btn_view_gallery_contact: "Ver Galería"
+    }
+  };
+
+  const langToggle = document.getElementById('langToggle');
+  let currentLang = localStorage.getItem('lang') || 'en';
+
+  function applyText(lang) {
+    document.documentElement.setAttribute('lang', lang === 'es' ? 'es' : 'en');
+
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      const val = translations[lang]?.[key];
+      if (typeof val === 'string') el.textContent = val;
+    });
+
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+      const key = el.getAttribute('data-i18n-placeholder');
+      const val = translations[lang]?.[key];
+      if (typeof val === 'string') el.setAttribute('placeholder', val);
+    });
+
+    if (langToggle) langToggle.textContent = (lang === 'en') ? 'ES' : 'EN';
+    localStorage.setItem('lang', lang);
+  }
+
+  if (langToggle) {
+    langToggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation(); // important so it doesn't interact with dropdown closing
+      currentLang = (currentLang === 'en') ? 'es' : 'en';
+      applyText(currentLang);
+    });
+  }
+
+  applyText(currentLang);
+})();
