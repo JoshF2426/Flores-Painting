@@ -61,6 +61,28 @@
       hero_title: "Clean prep. Crisp lines. A finish that lasts.",
       hero_desc: "Flores Painting (Javier Flores) provides reliable interior and exterior house painting. We focus on careful preparation, professional materials, and a smooth, even finish.",
 
+      svc_badge_interior: "Interior",
+svc_badge_exterior: "Exterior",
+svc_badge_prep: "Prep",
+
+svc_interior_chip_1: "Walls",
+svc_interior_chip_2: "Ceilings",
+svc_interior_chip_3: "Trim",
+svc_interior_chip_4: "Doors",
+svc_interior_chip_5: "Accent walls",
+
+svc_exterior_chip_1: "Siding",
+svc_exterior_chip_2: "Trim",
+svc_exterior_chip_3: "Garage doors",
+svc_exterior_chip_4: "Fascia",
+svc_exterior_chip_5: "Touch-ups",
+
+svc_prep_chip_1: "Patching",
+svc_prep_chip_2: "Sanding",
+svc_prep_chip_3: "Caulking",
+svc_prep_chip_4: "Masking",
+svc_prep_chip_5: "Surface prep",
+
       pill_1: "Interior repaint",
       pill_2: "Exterior repaint",
       pill_3: "Trim & doors",
@@ -155,6 +177,28 @@
 
       hero_title: "Preparación limpia. Líneas perfectas. Un acabado duradero.",
       hero_desc: "Flores Painting (Javier Flores) ofrece servicios confiables de pintura interior y exterior. Nos enfocamos en una preparación cuidadosa, materiales profesionales y un acabado uniforme.",
+
+      svc_badge_interior: "Interior",
+svc_badge_exterior: "Exterior",
+svc_badge_prep: "Preparación",
+
+svc_interior_chip_1: "Paredes",
+svc_interior_chip_2: "Techos",
+svc_interior_chip_3: "Molduras",
+svc_interior_chip_4: "Puertas",
+svc_interior_chip_5: "Muros de acento",
+
+svc_exterior_chip_1: "Revestimiento",
+svc_exterior_chip_2: "Molduras",
+svc_exterior_chip_3: "Puertas de garaje",
+svc_exterior_chip_4: "Fascia",
+svc_exterior_chip_5: "Retoques",
+
+svc_prep_chip_1: "Resanes",
+svc_prep_chip_2: "Lijado",
+svc_prep_chip_3: "Sellado",
+svc_prep_chip_4: "Enmascarado",
+svc_prep_chip_5: "Preparación de superficie",
 
       pill_1: "Pintura interior",
       pill_2: "Pintura exterior",
