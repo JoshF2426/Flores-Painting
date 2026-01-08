@@ -319,3 +319,143 @@ select option {
   color: #000;              /* dropdown options text */
   background-color: #fff;   /* dropdown background */
 }
+
+/* ---------- Page background / global text ---------- */
+body{
+  background: radial-gradient(900px 600px at 10% 0%, rgba(37,99,235,0.10), transparent 55%),
+              radial-gradient(900px 600px at 95% 10%, rgba(17,24,39,0.08), transparent 55%),
+              var(--bg);
+  color: var(--text);
+}
+
+/* ---------- Header ---------- */
+header{
+  background: rgba(243,244,246,0.85);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(10px);
+}
+
+/* Brand badge: clean blue/black */
+.brand-badge{
+  background: linear-gradient(135deg, rgba(37,99,235,0.95), rgba(17,24,39,0.95));
+  box-shadow: var(--shadow-soft);
+}
+
+/* Dropdown menu: white panel, black text */
+.menu{
+  background: rgba(255,255,255,0.98);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+.menu a{
+  color: var(--text);
+  border-bottom: 1px solid rgba(17,24,39,0.08);
+}
+.menu a:hover{ background: rgba(17,24,39,0.04); }
+.menu a.active{
+  background: rgba(37,99,235,0.10);
+  border-left: 3px solid var(--brand);
+}
+
+/* ---------- Buttons ---------- */
+.btn{
+  background: rgba(17,24,39,0.02);
+  border: 1px solid var(--line);
+  color: var(--text);
+}
+.btn:hover{
+  background: rgba(17,24,39,0.05);
+  border-color: rgba(17,24,39,0.18);
+}
+
+.btn.primary{
+  background: linear-gradient(135deg, rgba(37,99,235,0.95), rgba(59,130,246,0.95));
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 10px 22px rgba(37,99,235,0.22);
+}
+.btn.primary:hover{
+  background: linear-gradient(135deg, rgba(37,99,235,1), rgba(59,130,246,1));
+}
+
+/* Hamburger lines should be dark now */
+.hamburger-lines span{ background: var(--text); opacity: 0.9; }
+
+/* ---------- Cards / sections ---------- */
+.hero-card,
+.card,
+.gallery-item,
+.notice{
+  background: var(--panel);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+/* Slightly softer “lift” on hover for cards */
+.card:hover,
+.gallery-item:hover,
+.hero-card:hover{
+  transform: translateY(-2px);
+  transition: transform 140ms ease, box-shadow 140ms ease;
+  box-shadow: 0 16px 34px rgba(17,24,39,0.14);
+}
+
+/* Section title text tones */
+.section-title p,
+.brand-text span,
+.card p,
+.notice{
+  color: var(--muted);
+}
+
+/* ---------- Hero image caption: modern light panel ---------- */
+.hero-media{
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+.hero-media .overlay{
+  background: linear-gradient(180deg, rgba(255,255,255,0.00), rgba(17,24,39,0.35));
+}
+.hero-media .caption{
+  background: rgba(255,255,255,0.92);
+  border: 1px solid var(--line);
+}
+.caption strong{ color: var(--text); }
+.caption span{ color: var(--muted); }
+
+/* ---------- Form inputs (millennial grey, readable) ---------- */
+input, textarea, select{
+  background: rgba(17,24,39,0.03);
+  border: 1px solid rgba(17,24,39,0.14);
+  color: var(--text);
+}
+input:focus, textarea:focus, select:focus{
+  border-color: rgba(37,99,235,0.55);
+  box-shadow: 0 0 0 4px rgba(37,99,235,0.15);
+}
+
+/* Your dropdown options readability fix (keep!) */
+select option{
+  color: #000;
+  background-color: #fff;
+}
+
+/* ---------- Pills: light, clean, with blue hint ---------- */
+.pill{
+  background: rgba(37,99,235,0.06);
+  border: 1px solid rgba(37,99,235,0.18);
+  color: rgba(17,24,39,0.78);
+}
+
+/* ---------- Footer ---------- */
+footer{
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+}
+
+/* Skip link styling to match */
+.skip-link:focus{
+  background: #ffffff;
+  border: 1px solid var(--line);
+  color: var(--text);
+}
